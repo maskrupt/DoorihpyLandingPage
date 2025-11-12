@@ -3,12 +3,8 @@
     <!-- NAVBAR -->
     <header class="sticky top-0 z-20 border-b border-slate-900/70 bg-slate-950/85 backdrop-blur">
       <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <div class="flex items-center gap-2">
-          <div
-            class="flex h-9 w-9 items-center justify-center rounded-2xl border border-sky-500/50 bg-sky-500/10"
-          >
-            <span class="text-xl font-black text-sky-400">D</span>
-          </div>
+        <div class="flex items-center gap-1.5">
+          <img :src="logo" alt="Dooriphy logo" class="h-9 w-9" />
           <div class="text-lg font-semibold tracking-tight">Dooriphy</div>
         </div>
 
@@ -330,7 +326,7 @@
                   {{ error }}
                 </p>
                 <p v-if="success" class="text-xs text-emerald-400">
-                  Thanks! Your message has been captured (demo only).
+                  Thanks! Your message has been captured. We will get back to you soon.
                 </p>
 
                 <button
@@ -358,14 +354,6 @@
                   <li>• What devices you plan to mount at the doors.</li>
                   <li>• Any custom branding or features you care about.</li>
                 </ul>
-                <p class="mt-4 text-[0.7rem] text-slate-500">
-                  This demo landing page doesn’t send real email yet. In a live
-                  deployment, this form can post to an API, send to an inbox, or
-                  create tickets in your support system.
-                </p>
-                <p class="mt-6 text-[0.7rem] text-slate-500">
-                  Copyright MaskRupt. Do not distribute!
-                </p>
               </div>
             </FadeInSection>
           </div>
@@ -388,6 +376,7 @@
 </template>
 
 <script setup>
+import logo from './assets/logo.png'
 import { reactive, ref, computed } from 'vue'
 import FadeInSection from './components/FadeInSection.vue'
 import HeroScreenCarousel from './components/HeroScreenCarousel.vue'
@@ -416,7 +405,6 @@ function handleSubmit() {
 
   submitting.value = true
 
-  // Fake async submit
   setTimeout(() => {
     submitting.value = false
     success.value = true
